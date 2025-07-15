@@ -12,7 +12,7 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
     handleDisconnect(client: Socket) {
         //broadcast to everyone but the client disconnecting
-        client.broadcast.emit('chat',`User ${client.id} has connected`);
+        client.broadcast.emit('chat',`User ${client.id} has disconnected`);
     }
     @SubscribeMessage('hello')
     handleNewMessage(@ConnectedSocket() client:Socket, @MessageBody() message:any){
